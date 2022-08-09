@@ -10,7 +10,6 @@ library(detectseparation)
 library(matrixStats)
 library(Formula)
 library(knitr)
-library(xtable)
 rm(list=ls())
 load('table1.rdata')
 
@@ -117,6 +116,7 @@ Table1 <- cbind.data.frame(data.frame(Estimator=c("Ordinary SBI", rep(NA,4),
 options(knitr.kable.NA="")
 cat("Table 1\n", file="../tables_and_figures/Table1.md")
 cat(kable(Table1, digits=2), 
+    sep="\n",
     file = "../tables_and_figures/Table1.md",
     append = TRUE)
 
@@ -145,6 +145,7 @@ rownames(pB.analysis) <- c("Ordinary SBI",
 pB.analysis <- pB.analysis
 cat("Table 2\n", file="../tables_and_figures/Table2.md")
 cat(kable(pB.analysis, digits=3), 
+    sep="\n",
     file = "../tables_and_figures/Table2.md",
     append = TRUE)
 
@@ -182,6 +183,7 @@ colnames(fixed.p) <- c("Estimator", "Statistic", "$\\alpha_0$", "$\\alpha_1$")
 fixed.p[c(1,6), 3:4] <- fixed.p[c(1,6), 3:4]*-1
 cat("Table B.1\n", file="../tables_and_figures/TableB1.md")
 cat(kable(fixed.p, digits=2), 
+    sep="\n",
     file = "../tables_and_figures/TableB1.md",
     append = TRUE)
 

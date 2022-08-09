@@ -1,0 +1,17 @@
+# ###### If needed
+library(devtools)
+install_github("ccrismancox/games2")
+# #####
+library(games2)
+library(doParallel)
+library(doRNG)
+library(brglm)
+library(detectseparation)
+library(matrixStats)
+library(Formula)
+library(knitr)
+library(numDeriv)
+library(readstata13)
+library(ggplot2)
+library(gridExtra)
+library(stringr)

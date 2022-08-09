@@ -10,7 +10,6 @@ library(detectseparation)
 library(matrixStats)
 library(Formula)
 library(knitr)
-library(xtable)
 rm(list=ls())
 # sessionInfo()
 
