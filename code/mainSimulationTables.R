@@ -33,6 +33,13 @@ table(out[,Index$separation[7]]) # Check all covariates against SF 205 (interest
 # only keep the separation cases 
 out <- out[out[,Index$separation[6]]==1,]
 
+biasSBI.nc <- rowMeans((t(out)[Index$coefs[1,], ] - truth ), na.rm=T)
+biasSBI.wc <- rowMeans((t(out)[Index$coefs[2,], ] - truth ), na.rm=T)
+biasFML.nc <- rowMeans((t(out)[Index$coefs[3,], ] - truth ), na.rm=T)
+biasFML.wc <- rowMeans((t(out)[Index$coefs[4,], ] - truth ), na.rm=T)
+biasFML.wc2 <- rowMeans((t(out)[Index$coefs[5,], ] - truth ), na.rm=T)
+biasFML.wc3 <- rowMeans((t(out)[Index$coefs[6,], ] - truth ), na.rm=T)
+
 estSBI.nc <- colMeans(out[,Index$coefs[1,]], na.rm=T)
 estSBI.wc <- colMeans(out[,Index$coefs[2,]], na.rm=T)
 estFML.nc <- colMeans(out[,Index$coefs[3,]], na.rm=T)
@@ -65,7 +72,7 @@ sdtrueFIML <- colMeans(out[,Index$trueSE[5:8]],na.rm=T)
 output2 <- list(rmse=c(rmseSBI.nc, rmseSBI.wc, rmseFML.nc, rmseFML.wc,rmseFML.wc2,rmseFML.wc3),
                 sd=sqrt(c(seSBI.nc, seSBI.wc, seFML.nc, seFML.wc,seFML.wc2,seFML.wc3)),
                 est=c(estSBI.nc, estSBI.wc, estFML.nc, estFML.wc, estFML.wc2, estFML.wc3))
-output2$est[seq(1,k*6,by=4)] <- output2$est[seq(1,k*6,by=4)]*-1
+output2$est[seq(1,k*6,by=4)] <- output2$est[seq(1,k*6,by=4)]*-1 #convert from SBI to regular form 
 output2$coverage <- c(colMeans(out[,Index$coverage[1,]], na.rm=T),
                       colMeans(out[,Index$coverage[2,]], na.rm=T),
                       colMeans(out[,Index$coverage[3,]], na.rm=T),
@@ -107,18 +114,15 @@ Table1 <- cbind.data.frame(data.frame(Estimator=c("Ordinary SBI", rep(NA,4),
                                                   "St. Err. (SBI)",
                                                   "St. Err. (FIML)")),
                            Table1)
-
-cat("Table 1\n")
-print(xtable(Table1,align=c("rrrddddd")),
-      include.rownames = FALSE,
-      sanitize.text.function = function(x){x},
-      hline.after = c(-1,0,5,10,15,20, 25, 30,33))
-
-
-# save(output2, file="table1.rdata")
+options(knitr.kable.NA="")
+cat("Table 1\n", file="../tables_and_figures/Table1.md")
+cat(kable(Table1, digits=2), 
+    file = "../tables_and_figures/Table1.md",
+    append = TRUE)
 
 
-############## what about pB#########
+
+############## what about pB (Table 2)#########
 
 pB.analysis <- cbind(
   colMeans(out[,Index$p[1:6]], na.rm=TRUE),
@@ -139,11 +143,14 @@ rownames(pB.analysis) <- c("Ordinary SBI",
                            "BR-FIML (Cauchy)",
                            "BR-FIML (log-$F$)")
 pB.analysis <- pB.analysis
-cat("Table 2\n")
-print(xtable(pB.analysis, digits=3),
-      sanitize.text.function = function(x){x})
+cat("Table 2\n", file="../tables_and_figures/Table2.md")
+cat(kable(pB.analysis, digits=3), 
+    file = "../tables_and_figures/Table2.md",
+    append = TRUE)
 
-# Expected values for fixed p
+
+
+############## what about a fixed pB (Table B.1)#########
 fixed.p <-rbind.data.frame(colMeans(out[,Index$fixedp[1,]][,1:2]),
                            colMeans(out[,Index$fixedp[2,]][,1:2]),
                            #sampling sd
@@ -170,9 +177,12 @@ fixed.p <- cbind.data.frame(c("Ordinary SBI",  rep(NA, 4),
                                   "Coverage", 
                                   "Power"),2),
                             fixed.p)
-colnames(fixed.p) <- c("Estimator", "Statistic", "$\\alpha_0$", "$\\alpha_1$")
-cat("Table B.1\n")
 
-print(xtable(fixed.p), sanitize.text.function = function(x){x}, include.rownames = FALSE)
+colnames(fixed.p) <- c("Estimator", "Statistic", "$\\alpha_0$", "$\\alpha_1$")
+fixed.p[c(1,6), 3:4] <- fixed.p[c(1,6), 3:4]*-1
+cat("Table B.1\n", file="../tables_and_figures/TableB1.md")
+cat(kable(fixed.p, digits=2), 
+    file = "../tables_and_figures/TableB1.md",
+    append = TRUE)
 
 

@@ -15,10 +15,10 @@ rm(list=ls())
 # sessionInfo()
 
 source("simulation_extraFunctions.r")
-truth <- c(-1.5, -2.5,-1,4)
+truth <- c(-1.5, -2.5,-1,4) #truth in SBI form (1.5 not -1.5)
 N <- 500
 b0 <- truth
-b0[1] <- -b0[1]
+b0[1] <- -b0[1] #switch to real truth
 cl <- makeCluster(37)
 registerDoParallel(cl)
 set.seed(1)
