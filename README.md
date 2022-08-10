@@ -1,6 +1,14 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
 # Replication Arhive for "Detecting and Correcting for Separation in Strategic Choice Models" 
 
 ## Note to the PA replication team
+Dear replication team, 
+
+Thank you for taking the time to reproduce the results in our paper. We have one note about differences we found in preparing the replication archive.  Specifically, some of the values in Table D.2 (Online Appendix) have changed. We attribute this to slight adjustments in coding and software routines. The changes are minor and lead to no changes in the text or any conclusions. The values in `tableD2.md` are correct and are what we ask be published. Thank you.
 
 ## R packages and session info
 
@@ -51,13 +59,44 @@ loaded via a namespace (and not attached):
 [65] xfun_0.25   
 ```
 
-## Contents
-
+## Archive contents
+In this section, we describe the files contained in this replication archive and what they contain.
 
 ### Main level
-### Data
-### Code
-### Tables and figures
+The main level contains three files and three folders. The files are:
 
+- `README.md` This file the in text format
+- `README.pdf` This file in pdf format
+- `master.r` An R code file that replicates the paper. This file changes the working directory to the `code` folder and runs all of the R scripts.
+
+The three folders are described below
+
+### Data
+The folder `data` contains one file.
+
+- `huth.dta` The replication data from Huth (1998). These data were graciously provided by Curt Signorino who used them in Signorino and Tarar (2006). The variable descriptions and full citations can be found in the Online Appendix.
+
+### Code
+
+The folder `code` contains 25 files.
+
+- `packages.r` This file installs the package versions used in the analysis.
+- `extraFunctions.r` This file contains helper functions for the simulations and replication
+- `mainSimulation.R` This files runs the main simulation reported in the text. It reproduces Tables 1, 2, and B.1 in files `tables_and_figures/Table1.md`, `tables_and_figures/Table2.md`, and `tables_and_figures/TableB1.md`, respectively. Its raw output is saved in the file `table1.rdata`.
+- `SignorinoAndTararReplication.R` This file replicates the Signorino and Tarar (2006) study. This file reproduces Tables 3 and 4 and Figure 3  in files `tables_and_figures/Table3.md`, `tables_and_figures/Table4.md`, and `tables_and_figures/figure3.pdf`, respectively. Its main output is saved in the files `sigTarar_output.rdata` and `signorinorarar_brfit.rdata`.
+- `TableB2.R` This file runs the simulation in Appendix B.2.  It reproduces Table B.2 in the file `tables_and_figures/TableB2.md. Its raw output is saved in the file `tableB2.rdata`
+- `TableB3.R` This file runs the first simulation in Appendix B.3.  It reproduces Table B.3 in the file `tables_and_figures/TableB3.md. Its raw output is saved in the file `tableB3.rdata`
+- `TableB4.R` This file runs the second simulation in Appendix B.3.  It reproduces Table B.4 in the file `tables_and_figures/TableB4.md. Its raw output is saved in the file `tableB4.rdata`
+- `TableB5.R` This file runs the simulation in Appendix B.4.  It reproduces Table B.5 in the file `tables_and_figures/TableB5.md. Its raw output is saved in the file `tableB5.rdata`
+- `TableB6.R` This file runs first the simulation in Appendix B.4.1.  It reproduces Table B.6 in the file `tables_and_figures/TableB6.md. Its raw output is saved in the file `tableB6.rdata`
+- `TableB7.R` This file runs second the simulation in Appendix B.4.1.  It reproduces Table B.7 in the file `tables_and_figures/TableB7.md. Its raw output is saved in the file `tableB7.rdata`
+- `TableB8.R` This file runs first the simulation in Appendix B.5.  It reproduces Table B.8 in the file `tables_and_figures/TableB8.md. Its raw output is saved in the file `tableB8.rdata`
+- `TableB9.R` This file runs second the simulation in Appendix B.5.  It reproduces Table B.9 in the file `tables_and_figures/TableB9.md. Its raw output is saved in the file `tableB9.rdata`
+- `Leblang.R` This file replicates results from Leblang (2003) using the data packaged within the `games2` package. It reproduces Tables D.1-2 in files `tables_and_figures/TableD1.md` and `tables_and_figures/TableD2.md`, respectively. The raw output is saved in the file `Leblang_output.rdata`
+
+
+### Table and figures
+The folder `tables_and_figures` contains 16 files. The generation and contents of these files are described in the Code section above
 
 ## Running the code
+Files may be run individually from the `code` folder or the file `master.r` can be run from the main folder.

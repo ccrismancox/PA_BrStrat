@@ -255,3 +255,4 @@ cat(kable(tabOut),
     sep="\n",
     file="../tables_and_figures/TableD2.md",
     append = TRUE)
+save(c("Lcoefs", "LSE", "info.list"), file="Leblang_output.rdata")
