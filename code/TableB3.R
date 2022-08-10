@@ -12,7 +12,7 @@ library(Formula)
 library(knitr)
 rm(list=ls())
 
-source("simulation_extraFunctions.r")
+source("extraFunctions.r")
 truth <- c(0.5, -2,-1,3)
 N <- 50
 b0 <- truth

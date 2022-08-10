@@ -10,10 +10,9 @@ library(detectseparation)
 library(matrixStats)
 library(Formula)
 library(knitr)
-library(xtable)
 rm(list=ls())
 
-source("simulation_extraFunctions.r")
+source("extraFunctions.r")
 truth <- c(2, .25, 2.5, -.5,.25, 5)
 N <- 500
 b0 <- truth

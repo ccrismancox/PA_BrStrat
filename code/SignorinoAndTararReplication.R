@@ -14,7 +14,7 @@ library(stringr)
 library(knitr)
 
 rm(list=ls())
-source("application_extraFunctions.R")
+source("extraFunctions.R")
 huth <- read.dta13("../data/huth.dta")
 
 SBI.Sig <- function(dat,names, i, br=FALSE){ #SBI function for bootstrap

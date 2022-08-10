@@ -1,5 +1,7 @@
 # Replication Arhive for "Detecting and Correcting for Separation in Strategic Choice Models" 
 
+## Note to the PA replication team
+
 ## R packages and session info
 
 The session information is printed below 
@@ -48,3 +50,14 @@ loaded via a namespace (and not attached):
 [61] desc_1.3.0               stringi_1.7.8            Rcpp_1.0.7               vctrs_0.3.8             
 [65] xfun_0.25   
 ```
+
+## Contents
+
+
+### Main level
+### Data
+### Code
+### Tables and figures
+
+
+## Running the code

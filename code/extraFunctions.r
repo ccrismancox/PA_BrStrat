@@ -188,3 +188,20 @@ br.sbi <- function(formulas,mf,par, penalty=c("Firth", "Cauchy", "logF")){
 rmse <- function(bias, var){
   return(sqrt(sum(var)+ crossprod(bias)))
 }
+
+
+convTest <- function(Y,X, fn){
+  require(stringr)
+  catch <- tryCatch(fn(x=X, y=Y, family=binomial(link="probit")), warning=function(w){w})
+  if(class(catch)[1] == "list"){
+    return(catch$coef)
+  }else{
+    if(str_detect(as.character(catch),"fitted probabilities numerically 0 or 1 occurred")  | 
+       str_detect(as.character(catch),"#successes in a binomial glm!") ){
+      return(fn(x=X, y=Y, family=binomial(link="probit"))$coef)
+    }else{
+      cat("Unknown warning detected:", paste("'", catch, "'\n", sep=""))
+      return(NA)
+    }
+  }
+}
