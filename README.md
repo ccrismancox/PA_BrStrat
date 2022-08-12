@@ -3,12 +3,12 @@ output:
   html_document: default
   pdf_document: default
 ---
-# Replication Arhive for "Detecting and Correcting for Separation in Strategic Choice Models" 
+# Replication Archive for "Detecting and Correcting for Separation in Strategic Choice Models" 
 
 ## Note to the PA replication team
 Dear replication team, 
 
-Thank you for taking the time to reproduce the results in our paper. We have one note about differences we found in preparing the replication archive.  Specifically, some of the values in Table D.2 (Online Appendix) have changed. We attribute this to slight adjustments in coding and software routines. The changes are minor and lead to no changes in the text or any conclusions. The values in `tableD2.md` are correct and are what we ask be published. Thank you.
+Thank you for taking the time to reproduce the results in our paper. We have one note about differences we found in preparing the replication archive.  Specifically, some values in Table D.2 (Online Appendix) have changed. We attribute this to slight adjustments in coding and software routines. The changes are minor and lead to no changes in the text or any conclusions. The values in `tableD2.md` are correct and are what we ask be published. Thank you.
 
 ## R packages and session info
 
@@ -74,7 +74,7 @@ The three folders are described below
 ### Data
 The folder `data` contains one file.
 
-- `huth.dta` The replication data from Huth (1998). These data were graciously provided by Curt Signorino who used them in Signorino and Tarar (2006). The variable descriptions and full citations can be found in the Online Appendix.
+- `huth.dta` The replication data from Signorino and Tarar (2006) and originally from Huth (1998). The variable descriptions and full citations can be found in the Online Appendix.
 
 ### Code
 

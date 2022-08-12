@@ -191,7 +191,8 @@ cat(kable(tabD1),
 l2 <- egame12(outcome ~ capcont + lreserves + overval + creditgrow +
                 USinterest + service + contagion + prioratt - 1 | 1 | 1 | unifgov + lexports
               + preelec + postelec + rightgov + realinterest + capcont + lreserves, data =
-                leblang2003, link = "probit", type = "private", penalty="logF")
+                leblang2003, link = "probit", type = "private", penalty="logF",
+              start=l1$coefficients)
 
 #### Convert to table ####
 
@@ -255,4 +256,4 @@ cat(kable(tabOut),
     sep="\n",
     file="../tables_and_figures/TableD2.md",
     append = TRUE)
-save(c("Lcoefs", "LSE", "info.list"), file="Leblang_output.rdata")
+save(list=c("Lcoefs", "LSE", "info.list"), file="Leblang_output.rdata")

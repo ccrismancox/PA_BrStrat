@@ -179,14 +179,7 @@ out <- foreach(i =  1:500, .packages=c("games2", "brglm", "detectseparation", "m
                  }else{
                    WCSBI <- rep(NA, 21)
                  }
-                 # 
-                 # Htests.SBIWC <- (summary(mB)$coef[,4] < 0.05) == reject
-                 # Htests.FIMLNC <- (summary(s1)$coef[,4][13:21] < 0.05) ==reject
-                 # Htests.FIMLWC <- (summary(s2)$coef[,4][13:21] < 0.05) ==reject
-                 # Htests.FIMLWC1 <- (summary(s3)$coef[,4][13:21] < 0.05) ==reject
-                 # 
-                 # 
-                 # 
+         
                  
                  # keep things from exploding
                  if(any(abs(NCSBI) > 1000,na.rm=T)){
@@ -289,7 +282,3 @@ cat(kable(relative, digits=2),
     file = "../tables_and_figures/TableB8.md",
     append = TRUE)
 
-# 
-# print(xtable(relative, caption="Relative RMSE of Estimates Compared to BR-FIML",
-#        label="tab.MCsigtar",align="rrccc"), hline.after = c(0,1,21,22),
-#       caption.placement="top", sanitize.text.function=function(x){x})
