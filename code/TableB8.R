@@ -148,7 +148,6 @@ out <- foreach(i =  1:500, .packages=c("games2", "brglm", "detectseparation", "m
                  }else{
                    NCSBI <- rep(NA, 21)
                  }
-                 Htests.SBINC <- (summary(mB)$coef[,4] < 0.05) == reject
                  
                  ## BR
                  Y1 <- dat[,1]

@@ -387,7 +387,7 @@ TableB3 <- cbind.data.frame(data.frame(Estimator=c("Ordinary SBI", rep(NA,4),
                                                   "St. Err. (FIML)")),
                            TableB3)
 
-cat("Table B.3\n")
+cat("Table B.3\n", file = "../tables_and_figures/TableB3.md")
 cat(kable(TableB3, digits=2), 
     sep="\n",
     file = "../tables_and_figures/TableB3.md",

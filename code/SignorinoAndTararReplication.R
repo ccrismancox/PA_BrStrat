@@ -14,7 +14,7 @@ library(stringr)
 library(knitr)
 
 rm(list=ls())
-source("extraFunctions.R")
+source("extraFunctions.r")
 huth <- read.dta13("../data/huth.dta")
 
 SBI.Sig <- function(dat,names, i, br=FALSE){ #SBI function for bootstrap
@@ -403,7 +403,6 @@ cbind(SSE4, SSE4c,SSE4f)
 
 #### Table it ####
 
-source("xtable2.R")
 
 Scoefs <- list(s1$coef,
                apply(s1SBI, 2, median),

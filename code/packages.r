@@ -31,3 +31,5 @@ library(ggplot2)
 library(gridExtra)
 library(stringr)
 library(mc2d)
+
+print(sessionInfo())
