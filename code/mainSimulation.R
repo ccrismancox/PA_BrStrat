@@ -484,10 +484,21 @@ fixed.p <- cbind.data.frame(c("Ordinary SBI",  rep(NA, 4),
                                   "Power"),2),
                             fixed.p)
 
+
 colnames(fixed.p) <- c("Estimator", "Statistic", "$\\alpha_0$", "$\\alpha_1$")
-fixed.p[c(1,6), 3:4] <- fixed.p[c(1,6), 3:4]*-1
+fixed.p[c(1,6), 3] <- fixed.p[c(1,6), 3]*-1
+
+
+info <- data.frame(c("Truth",""),
+                   c("Parmeters", "St. Err."),
+                   c(b0[1], sdtrueSBI[1]),
+                   c(b0[2], sdtrueSBI[2]))
+colnames(info) <- colnames(fixed.p)
+fixed.p <- rbind(fixed.p, info)
+                
+                 
 cat("Table B.1\n", file="../tables_and_figures/TableB1.md")
-cat(kable(fixed.p, digits=2), 
+cat(kable(fixed.p, digits=2, row.names=FALSE), 
     sep="\n",
     file = "../tables_and_figures/TableB1.md",
     append = TRUE)

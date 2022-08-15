@@ -216,10 +216,11 @@ out <- foreach(i =  1:500, .packages=c("games2", "brglm", "detectseparation", "m
                  output
                }
 stopCluster(workers)
+save.image("tableB9.rdata")
 
 
 
-
+load("tableB9.rdata")
 names <- c("Const.",
            "Tit-for-Tat",
            "Firm-Flex",

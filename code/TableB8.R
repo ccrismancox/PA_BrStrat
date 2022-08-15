@@ -201,10 +201,11 @@ out <- foreach(i =  1:500, .packages=c("games2", "brglm", "detectseparation", "m
                  output
                }
 stopCluster(workers)
+save.image("tableB8.rdata")
 
 
 
-
+load("tableB8.rdata")
 truth <- s2.fixed$coefficients
 biasSBI.nc <- rowMeans((t(out)[1:21, ] - truth ), na.rm=T)
 biasSBI.wc <- rowMeans((t(out)[22:42, ] - truth ), na.rm=T)
