@@ -1,7 +1,7 @@
 #######
 # If needed
 library(devtools)
-install_github("ccrismancox/games2")
+#install_github("ccrismancox/games2")
 ######
 library(mc2d)
 library(games2)
@@ -23,7 +23,7 @@ rmse <- function(bias, var){
 s2.fixed <- s2
 dat2.fixed <- dat2
 dat.fixed <- dat
-workers <- makeCluster(30) 
+workers <- makeCluster(16) 
 registerDoParallel(workers)
 set.seed(2)
 out <- foreach(i =  1:500, .packages=c("games2", "brglm", "detectseparation", "mc2d"),

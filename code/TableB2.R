@@ -1,6 +1,6 @@
 # ###### If needed
 library(devtools)
-install_github("ccrismancox/games2")
+#install_github("ccrismancox/games2")
 # #####
 library(games2)
 library(doParallel)
@@ -18,7 +18,7 @@ N <- 500
 b0 <- truth
 b0[1] <- -b0[1] #switch to real truth
 
-cl <- makeCluster(37) 
+cl <- makeCluster(16) 
 registerDoParallel(cl)
 set.seed(1)
 out <- foreach(i =  1:5000, .packages=c("games2", "brglm", "detectseparation", "Formula"),

@@ -1,7 +1,7 @@
 #######
 # If needed
 library(devtools)
-install_github("ccrismancox/games2")
+#install_github("ccrismancox/games2")
 ######
 library(mc2d)
 library(games2)
@@ -27,7 +27,7 @@ dat.fixed <- dat
 s2.fixed$coefficients['u2(4):milallia'] <- 0
 
 reject <- c(TRUE,TRUE, rep(FALSE,7))
-workers <- makeCluster(25) 
+workers <- makeCluster(16) 
 registerDoParallel(workers)
 set.seed(2)
 out <- foreach(i =  1:500, .packages=c("games2", "brglm", "detectseparation", "mc2d"),

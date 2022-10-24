@@ -1,7 +1,7 @@
 #######
 # If needed
 library(devtools)
-install_github("ccrismancox/games2")
+#install_github("ccrismancox/games2")
 ######
 library(games2)
 library(brglm) 
